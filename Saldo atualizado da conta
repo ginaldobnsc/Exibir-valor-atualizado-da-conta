@@ -1,0 +1,37 @@
+public class Main
+{
+	public static void main(String[] args) {
+		Conta conta1 = new Conta();
+		Conta conta2 = new Conta(200.00);
+		conta1.deposito(100.00);
+		conta1.setNomeCliente("Marcos");
+		conta2.deposito(50.00);
+		conta2.saque(275.00);
+		System.out.println("Nome do Cliente "+conta1.getNomeCliente()+" Saldo: "+conta1.getSaldo());
+		System.out.println(conta2.getSaldo());
+	}
+	
+}
+
+public class Conta 
+{
+  private double saldo;
+  private String nome_cliente;
+  
+  public Conta(){}
+  
+  public Conta(double saldoInicial)
+  {      saldo = saldoInicial;  }
+  
+  public void deposito(double valor)
+  {      saldo = saldo + valor;  }
+  
+  public void saque(double valor)
+  {      if((saldo-valor)<0) { System.out.println("Não há saldo disponível.");}
+      else {saldo = saldo - valor;}  }
+  public double getSaldo(){ return saldo; }
+  public void setNomeCliente(String nome)
+  {      nome_cliente = nome;  }
+  public String getNomeCliente()
+  {   return nome_cliente;}
+}
